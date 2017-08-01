@@ -1,0 +1,24 @@
+//  Eli Kohler      8-1-17
+//  OBJECTIVE: Water plant every 12 hours using a pump and container.
+
+int water=30000; //Sets duration that the pump will run
+
+void loop() {
+  
+  long int pause=0;     //pause will act as a timer until the next watering
+
+   while(pause<=43199){
+      pinMode(8,LOW);   //pump set off
+      delay(1000);      
+      pause++;          //increment pause by 1 every second
+    }
+                        //Terminate when pause variable matches 12 hours (pause==43200)
+
+    if(pause==43200){
+      pinMode(8,HIGH);  //pump turns on
+      delay(water);     //pump set on for this amount of time
+    } 
+    else{
+      pinMode(8,LOW);   //if pause!=43200 pump stays off and pause is reset to 0
+    }
+}
